@@ -7,21 +7,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "e_description")
-@Data
+@Getter
+@Setter
 public class DescriptionEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Integer id;
-
-	private Integer descriptionId;
 
 	private String descriptionLabel;
 
@@ -41,4 +43,8 @@ public class DescriptionEntity {
 
 	@Column(length = 1)
 	private String delFlg;
+
+	@ManyToOne(optional=false)
+	@JoinColumn(name="item_id", referencedColumnName = "id")
+	private ItemsEntity item;
 }

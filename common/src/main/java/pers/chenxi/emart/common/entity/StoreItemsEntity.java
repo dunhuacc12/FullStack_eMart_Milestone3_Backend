@@ -12,21 +12,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "e_store_items")
-@Data
+@Getter
+@Setter
 public class StoreItemsEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Integer id;
-
-	// private Integer storeId;
-
-	// private Integer itemId;
 
 	private Timestamp crtDate;
 

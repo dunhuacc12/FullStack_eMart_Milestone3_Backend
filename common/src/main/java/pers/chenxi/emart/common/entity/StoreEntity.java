@@ -14,11 +14,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "e_store")
-@Data
+@Getter
+@Setter
 public class StoreEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

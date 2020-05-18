@@ -1,6 +1,5 @@
 package pers.chenxi.emart.common.entity;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -8,31 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "e_sub_category")
+@Table(name = "e_img_urls")
 @Getter
 @Setter
-public class SubCategoryEntity {
+public class ImgUrlEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Integer id;
 
-	@Column(nullable = false)
-	private String subCategoryName;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "item_id", referencedColumnName = "id")
+	private ItemsEntity item;
 
-	private Integer categoryId;
+	private String imgUrls;
 
-	private String brief;
-
-	@Column(precision = 10, scale = 2)
-	private BigDecimal gst;
+	private Integer sort;
 
 	private Timestamp crtDate;
 

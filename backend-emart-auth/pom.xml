@@ -4,11 +4,12 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>pers.chenxi.emart</groupId>
-	<artifactId>auth</artifactId>
+	<artifactId>backend-emart-auth</artifactId>
 	<parent>
 		<groupId>pers.chenxi</groupId>
-		<artifactId>emart</artifactId>
+		<artifactId>backend-emart</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<properties>

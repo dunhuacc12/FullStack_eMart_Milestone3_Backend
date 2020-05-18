@@ -5,7 +5,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>pers.chenxi</groupId>
-	<artifactId>emart</artifactId>
+	<artifactId>backend-emart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>backend-emart</name>
@@ -14,11 +14,11 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.8.BUILD-SNAPSHOT</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<modules>
-		<module>auth</module>
+		<module>backend-emart-auth</module>
 		<module>backend-emart-product</module>
 		<module>common</module>
 	</modules>

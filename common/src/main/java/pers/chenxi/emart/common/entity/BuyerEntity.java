@@ -9,11 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "e_buyer")
-@Data
+@Getter
+@Setter
 public class BuyerEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

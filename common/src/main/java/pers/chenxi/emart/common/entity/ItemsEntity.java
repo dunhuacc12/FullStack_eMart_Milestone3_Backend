@@ -2,6 +2,7 @@ package pers.chenxi.emart.common.entity;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,14 +11,17 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "e_items")
-@Data
+@Getter
+@Setter
 public class ItemsEntity {
 
 	@Id
@@ -37,7 +41,11 @@ public class ItemsEntity {
 
 	private String imgUrl;
 
-	private Integer descriptionId;
+	@OneToMany(mappedBy = "item", cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	private Set<ImgUrlEntity> imgUrls4Detail;
+
+	@OneToMany(mappedBy = "item", cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	private Set<DescriptionEntity> descriptions;
 
 	private Integer stockNum;
 

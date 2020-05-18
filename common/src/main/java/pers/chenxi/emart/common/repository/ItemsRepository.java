@@ -1,6 +1,7 @@
 package pers.chenxi.emart.common.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -28,6 +29,7 @@ public interface ItemsRepository extends CrudRepository<ItemsEntity, Integer> {
 	public List<ItemsEntity> findByItemsNameLike(String searchContent);
 
 	@Query("select t from ItemsEntity t where t.itemsName like CONCAT('%',:searchContent,'%')")
-	public  List<ItemsEntity> findItemsWithCustomQuery(@Param("searchContent") String searchContent);
+	public List<ItemsEntity> findItemsWithCustomQuery(@Param("searchContent") String searchContent);
 
+	public Optional<ItemsEntity> findById(Integer id);
 }
