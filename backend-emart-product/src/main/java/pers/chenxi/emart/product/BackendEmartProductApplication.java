@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * main class.
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author XiChen
  */
 @ComponentScan(basePackages = { "pers.chenxi.emart.product", "pers.chenxi.emart.common" })
+@EnableJpaAuditing
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class BackendEmartProductApplication extends SpringBootServletInitializer {
 

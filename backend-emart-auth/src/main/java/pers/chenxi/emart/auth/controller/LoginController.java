@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import pers.chenxi.emart.auth.common.ResponseGeneric;
 import pers.chenxi.emart.auth.dto.BuyerDto;
 import pers.chenxi.emart.auth.dto.SellerDto;
 import pers.chenxi.emart.auth.dto.UserDto;
 import pers.chenxi.emart.auth.service.LoginService;
+import pers.chenxi.emart.common.ResponseGeneric;
 
 /**
  * login controller.

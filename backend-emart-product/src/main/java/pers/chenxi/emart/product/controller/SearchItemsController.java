@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import pers.chenxi.emart.product.common.ResponseGeneric;
+import pers.chenxi.emart.common.ResponseGeneric;
 import pers.chenxi.emart.product.dto.SearchResultDto;
 import pers.chenxi.emart.product.service.SearchItemsService;
 

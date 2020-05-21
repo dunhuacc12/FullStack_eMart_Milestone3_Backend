@@ -3,6 +3,7 @@ package pers.chenxi.emart.common.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -32,4 +33,9 @@ public interface ItemsRepository extends CrudRepository<ItemsEntity, Integer> {
 	public List<ItemsEntity> findItemsWithCustomQuery(@Param("searchContent") String searchContent);
 
 	public Optional<ItemsEntity> findById(Integer id);
+
+	@Modifying
+	@Query("update ItemsEntity set stockNum = :stockNum where id = :itemId")
+	public void updateStockNumber(@Param("itemId") Integer itemId, @Param("stockNum") Integer stockNum);
+
 }

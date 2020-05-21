@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +16,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "e_items")
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 public class ItemsEntity {
@@ -41,21 +47,23 @@ public class ItemsEntity {
 
 	private String imgUrl;
 
-	@OneToMany(mappedBy = "item", cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "item", cascade = { CascadeType.REMOVE, CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	private Set<ImgUrlEntity> imgUrls4Detail;
 
-	@OneToMany(mappedBy = "item", cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "item", cascade = { CascadeType.REMOVE, CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	private Set<DescriptionEntity> descriptions;
 
 	private Integer stockNum;
 
 	private String remark;
 
+	@CreatedDate
 	private Timestamp crtDate;
 
 	@Column(length = 32)
 	private String crtUserId;
 
+	@LastModifiedDate
 	private Timestamp updDate;
 
 	@Column(length = 32)
@@ -64,6 +72,6 @@ public class ItemsEntity {
 	@Column(length = 1)
 	private String delFlg;
 
-	@OneToOne(mappedBy = "item", cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "item", cascade = { CascadeType.REMOVE, CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	private StoreItemsEntity storeItems;
 }

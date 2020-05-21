@@ -1,4 +1,4 @@
-package pers.chenxi.emart.product.common;
+package pers.chenxi.emart.common;
 
 import java.util.List;
 

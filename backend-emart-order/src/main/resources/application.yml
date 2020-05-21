@@ -1,0 +1,33 @@
+spring: 
+  #app name
+  application: 
+    name: backend-emart-auth
+
+  #data source
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mysql?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    max-idle: 10
+    max-wait: 10000
+    min-idle: 5
+    initial-size: 5
+
+  #jpa
+  jpa: 
+    database: MYSQL
+    show-sql: true
+    hibernate: 
+      # Hibernate ddl auto (create, create-drop, update, none)
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+      dialect: org.hibernate.dialect.MySQL5Dialect
+
+server: 
+  #server port
+  port: 8097
+  #session timeout
+  servlet: 
+    session: 
+      timeout: 30m
