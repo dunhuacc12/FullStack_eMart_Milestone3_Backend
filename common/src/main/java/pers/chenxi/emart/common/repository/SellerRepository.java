@@ -14,6 +14,9 @@ import pers.chenxi.emart.common.entity.SellerEntity;
  */
 public interface SellerRepository extends CrudRepository<SellerEntity, Integer> {
 
+	@Query("select u from SellerEntity u where u.userId=:userName")
+	public SellerEntity findUserByName(@Param("userName") String userName);
+
 	@Query("select u from SellerEntity u where u.userId=:userId and u.password=:password")
 	public SellerEntity findUserByIdAndPassword(@Param("userId") String userId, @Param("password") String password);
 

@@ -1,7 +1,14 @@
+server: 
+  #server port
+  port: 8098
+  #session timeout
+  servlet: 
+    session: 
+      timeout: 30m
 spring: 
   #app name
   application: 
-    name: backend-emart-auth
+    name: backend-emart-product
 
   #data source
   datasource: 
@@ -24,13 +31,14 @@ spring:
       naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
       dialect: org.hibernate.dialect.MySQL5Dialect
 
-server: 
-  #server port
-  port: 8098
-  #session timeout
-  servlet: 
-    session: 
-      timeout: 30m
-      
+eureka:
+   instance:
+      preferIpAddress: true         #注册服务的IP，而不是服务器的名称
+      client: 
+         registerWithEureka: true   #向Eureka注册服务
+         fetchRegistry: true        #拉取注册表的本副本
+         serviceUrl: 
+            defaultZone: http://localhost:8761/eureka/
+
 logging :
   path : ./logs

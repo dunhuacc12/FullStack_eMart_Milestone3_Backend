@@ -1,0 +1,39 @@
+server:
+   port: 5555
+spring:
+   application:
+      name: cloud-zuul
+ribbon:  
+   ReadTimeout: 7000
+   ConnectTimeout: 7000
+zuul:
+   sensitiveHeaders: Access-Control-Allow-Origin,Cookie,Set-Cookie  #配置头部黑名单，它包含Zuul不会传播到下游服务的敏感头部。同时意识着Authorization将被放行
+   ignored-headers: Access-Control-Allow-Origin,H-APP-Id,Token,APPToken
+   ignored-services: '*'
+   prefix: /api
+   host:
+      connect-timeout-millis: 30000
+      socket-timeout-millis: 30000
+   routes:
+      backend-emart-auth:    /backend-emart-auth/**   #重启机器后要多等一段时间才访问，注册要有三次心跳后才注册成功
+      backend-emart-user:    /backend-emart-user/**
+      backend-emart-order:   /backend-emart-order/**
+      backend-emart-product: /backend-emart-product/**
+   #添加代理头
+   add-proxy-headers: true
+
+hystrix:
+   command:
+      default:
+         execution:
+            isolation:
+               thread:
+                  timeout-in-milliseconds: 7000
+eureka:
+   instance:
+      preferIpAddress: true         #注册服务的IP，而不是服务器的名称
+      client: 
+         registerWithEureka: true   #向Eureka注册服务
+         fetchRegistry: true        #拉取注册表的本副本
+         serviceUrl: 
+            defaultZone: http://localhost:8761/eureka/

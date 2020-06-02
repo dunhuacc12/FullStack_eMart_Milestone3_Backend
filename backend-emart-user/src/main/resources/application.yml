@@ -1,0 +1,49 @@
+server: 
+  #server port
+  port: 8099
+  #session timeout
+  servlet: 
+    session: 
+      timeout: 30m
+spring: 
+  #app name
+  application: 
+    name: backend-emart-user
+  #data source
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mysql?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    max-idle: 10
+    max-wait: 10000
+    min-idle: 5
+    initial-size: 5
+
+  #jpa
+  jpa: 
+    database: MYSQL
+    show-sql: true
+    hibernate: 
+      # Hibernate ddl auto (create, create-drop, update, none)
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+      dialect: org.hibernate.dialect.MySQL5Dialect
+
+eureka:
+   instance:
+      preferIpAddress: true         #注册服务的IP，而不是服务器的名称
+      client: 
+         registerWithEureka: true   #向Eureka注册服务
+         fetchRegistry: true        #拉取注册表的本副本
+         serviceUrl: 
+            defaultZone: http://localhost:8761/eureka/
+
+#安全配置
+security:
+   oauth2:
+      resource:
+         id: producer-service
+         #指定用户信息地址,在生产环境里替换成服务发现来访问
+         user-info-uri: https://localhost:8991/user
+         prefer-token-info: false
