@@ -73,4 +73,25 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+
+				<!-- 是为了解决Unable to find main class的问题，当然，如果写了简单的main函数这几行可以不写 -->
+				<executions>
+					<execution>
+						<phase>none</phase>
+					</execution>
+				</executions>
+
+				<!-- spring-boot-maven-plugin用这个插件打包的Jar包可以直接运行，但是不可依赖 -->
+				<configuration>
+					<classifier>execute</classifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

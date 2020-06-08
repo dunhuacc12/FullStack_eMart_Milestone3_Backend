@@ -4,6 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>pers.chenxi.emart</groupId>
 	<artifactId>backend-emart-order</artifactId>
+	<packaging>war</packaging>
 	<parent>
 		<groupId>pers.chenxi</groupId>
 		<artifactId>backend-emart</artifactId>

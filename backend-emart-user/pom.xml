@@ -6,6 +6,7 @@
 	<artifactId>backend-emart-user</artifactId>
 	<name>backend-emart-user</name>
 	<description>microservice for user</description>
+	<packaging>war</packaging>
 
 	<parent>
 		<groupId>pers.chenxi</groupId>

@@ -28,6 +28,7 @@
 		<module>backend-emart-product</module>
 		<module>backend-emart-order</module>
 		<module>cloud-eureka</module>
+		<module>cloud-zuul</module>
 		<module>common</module>
 	</modules>
 
